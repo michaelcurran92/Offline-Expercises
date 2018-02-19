@@ -28,6 +28,9 @@ public class OfflineExercises {
 	// getSandwich("breadjambread") → "jam"
 	// getSandwich("xxbreadjambreadyy") → "jam"
 	// getSandwich("xxbreadyy") → ""
+	
+	// indexOf("bread") = first instance
+	// lastIndexOf("bread")
 
 	public String getSandwich(String input) {
 		String[] firstBreadSplitString = input.split("bread", 2);
@@ -48,7 +51,9 @@ public class OfflineExercises {
 	// evenlySpaced(4, 6, 3) → false
 
 	public boolean evenlySpaced(int a, int b, int c) {
-		int small, medium, large;
+		int small=0;
+		int medium=0;
+		int large=0;
 		int[] inputArray = {a, b, c};
 		small = Integer.MAX_VALUE;
 		for (int element : inputArray) {
@@ -65,9 +70,7 @@ public class OfflineExercises {
 			if (element > small && element < large)
 				medium = element;
 		}
-		if (medium - small == small && large - small == medium)
-			return true;
-		return false;
+		return (medium - small == small && large - small == medium);
 	}
 
 	// Given a string and an int n, return a string made of the first and last n
@@ -93,9 +96,7 @@ public class OfflineExercises {
 		if (input.length() < 2)
 			return false;
 		String end = input.substring(input.length()-2, input.length());
-		if (end.equals("ly"))
-			return true;
-		return false;	
+		return "ly".equals(end);	
 	}
 
 	// Given a string, return recursively a "cleaned" string where adjacent
@@ -116,12 +117,7 @@ public class OfflineExercises {
 		for (Character element : charArray) {
 			output = output.concat(element.toString());
 		}
-
-
 		return output;
-
-
-
 	}
 
 	// The fibonacci sequence is a famous bit of mathematics, and it happens to
@@ -136,19 +132,17 @@ public class OfflineExercises {
 	// fibonacci(2) → 1
 
 	public int fibonacci(int input) {
-		int last=0, current=1, temp=0, count=0;
+		int last=0;
+		int current=1;
+		int temp=0;
+		int count=0;
 		while (count < input) {
 			temp = last + current;
 			last = current;
 			current = temp;
 			count++;
 		}
-
 		return last;
-
-
-
-
 	}
 
 	// We have a number of bunnies and each bunny has two big floppy ears. We
@@ -167,12 +161,13 @@ public class OfflineExercises {
 
 	// Hollow diamond exercise
 
-	public void hollowDiamond(int width) {
+	public boolean hollowDiamond(int width) {
 		for (int i=0; i<width; i++)
 			hollowDiamondLineOut(width-i, i);
 
 		for (int i=0; i<width; i++)
 			hollowDiamondLineIn(i, width-i);
+		return true;
 	}
 
 	public void hollowDiamondLineOut(int beginningWidth, int middleWidth) {
@@ -196,6 +191,4 @@ public class OfflineExercises {
 		}
 		System.out.println("/");
 	}
-
-
 }

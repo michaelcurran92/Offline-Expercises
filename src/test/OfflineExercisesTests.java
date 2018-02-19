@@ -15,7 +15,7 @@ public class OfflineExercisesTests {
 	 * will not reflect in the trainers version of the tests, and may result in
 	 * some tests failing.
 	 */
-	OfflineExercises oe = new OfflineExercises();
+	private OfflineExercises oe = new OfflineExercises();
 
 	@Test
 	public void doubleChar() {
@@ -77,9 +77,9 @@ public class OfflineExercisesTests {
 	
 	@Test
 	public void hollowDiamond() {
-		oe.hollowDiamond(3);
-		oe.hollowDiamond(5);
-		oe.hollowDiamond(10);
+		assertTrue(oe.hollowDiamond(3));
+		assertTrue(oe.hollowDiamond(5));
+		assertTrue(oe.hollowDiamond(10));
 	}
 	
 	
